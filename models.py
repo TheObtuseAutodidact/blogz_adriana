@@ -17,7 +17,7 @@ class Post(db.Model):
         self.title = title
         self.body = body
         if not pub_date:
-            pub_date = datetime.utcnow()
+            pub_date = datetime.utcnow
         self.pub_date = pub_date
         self.author_id = author_id
 
@@ -41,17 +41,17 @@ class User(db.Model):
         self.email = email
         self.password = bcrypt.generate_password_hash(password)
 
-    # def is_authenticated(self):
-    #     return True
+    def is_authenticated(self):
+        return True
 
-    # def is_active(self):
-    #     return True
+    def is_active(self):
+        return True
 
-    # def is_anonymous(self):
-    #     return False
+    def is_anonymous(self):
+        return False
 
-    # def get_id(self):
-    #     return unicode(self.id)
+    def get_id(self):
+        return self.id
 
     def __repr__(self):
         return '<name - {}>'.format(self.name)

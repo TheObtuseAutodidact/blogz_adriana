@@ -1,14 +1,57 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>ADD A POST</h2>
-    <hr>
-    <form action="/newpost" method="POST">
-        <input type="text" name="title" placeholder="Your awesome title*" value="{{ title }}" /><br>
-        <input type="date" name="pub_date" value="{{ pub_date }}" placeholder="publish date" /><br>
-        <textarea rows="20" cols="60" placeholder="Anything you want to say*" name="body" value="{{ body }}"></textarea><br><br>
-        <input type="submit" value="ADD">
-    </form>
+<p><a href="{{ url_for('logout')}}"></a></p>
+<h1>Add A Post</h1>
+<br>
 
+<p>{% if current_user.is_authenticated %}
+  Hi {{ current_user.name }}!
+{% endif %}
+</p>
+
+<form  role="form" method="post" action="{{url_for('newpost')}}" >
+  {{ form.csrf_token }}
+
+
+  <p>
+    {{ form.title(placeholder="title") }}
+    <span class="error">
+      {% if form.title.errors %}
+        {% for error in form.title.errors %}
+          {{ error }}
+        {% endfor %}
+      {% endif %}
+    </span>
+  </p>
+  <p>
+  {{ form.body(placeholder="body") }}
+    <span class="error">
+      {% if form.body.errors %}
+        {% for error in form.body.errors %}
+          {{ error }}
+        {% endfor %}
+      {% endif %}
+    </span>
+  </p>
+
+<p>
+  {{ form.pub_date(placeholder="publish date") }}
+    <span class="error">
+      {% if form.pub_date.errors %}
+        {% for error in form.pub_date.errors %}
+          {{ error }}
+        {% endfor %}
+      {% endif %}
+    </span>
+  </p>
+
+
+    <p>
+    {{ form.author_id(value=current_user.id) }}
+    </p>
+
+  <button class="btn btn-sm btn-success" type="submit">Add</button>
+</form>
 
 {% endblock %}

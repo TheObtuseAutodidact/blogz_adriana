@@ -14,7 +14,9 @@
     <body class="container">
         <nav>
             <span><a href="/blog" class="text-left">BLOG</a></span>
-            <span class="addpost"><a href="/newpost">ADD A POST</a></span>
+            <span class="addpost"><a href="{{url_for('newpost')}}">ADD A POST</a></span>
+            <span><a href="{{url_for('login')}}">login</a></span><span>&nbsp;&nbsp;<a href="{{url_for('register')}}">register</a></span>
+            &nbsp; <span><a href="{{url_for('logout')}}">logout</a></span>
         </nav>
         {% with messages = get_flashed_messages(with_categories=True) %}
         <ul>
@@ -24,12 +26,13 @@
             </li>
             {% endfor %}
         </ul>
-
-
         {% endwith %}
+
+
         {% block content %}
 
         {% endblock %}
+
     </body>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

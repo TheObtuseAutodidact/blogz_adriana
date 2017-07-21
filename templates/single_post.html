@@ -2,8 +2,17 @@
 {% block content %}
     <h2>{{ post.title }}</h2>
     <hr>
+
+    <p><em>written by:
+        {% if current_user.is_authenticated %}
+            {{ current_user.name}}
+        {% endif %}
+
+    </em></p>
+
     <em>published at {{ post.pub_date }}</em>
     <hr>
     <p>{{ post.body }}</p>
 
 {% endblock%}
+
