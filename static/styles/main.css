@@ -13,3 +13,36 @@ body {
 nav{
     margin-top: 2.4em;
 }
+
+
+/*--
+	Header Start
+--*/
+header {
+  /* background: #fff; */
+    background: url("../img/home-baner.jpg") no-repeat;
+    height: 10%;
+  padding: 20px 0;
+}
+header .navbar {
+  margin-bottom: 0px;
+  border: 0px;
+}
+header .navbar-brand {
+  padding-top: 5px;
+}
+header .navbar-default {
+  background: none;
+  border: 0px;
+}
+header .navbar-default .navbar-nav {
+  padding-top: 10px;
+}
+header .navbar-default .navbar-nav li a {
+  color: #333333;
+  padding: 10px 26px;
+  font-size: 15px;
+}
+font header .navbar-default .navbar-nav li a:hover {
+  color: #000;
+}

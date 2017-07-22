@@ -75,14 +75,14 @@ def display_blog():
     username = request.args.get('username')
     if id:
         post = Post.query.filter_by(id=id).first()
-        return render_template('single_post.html', post=post)
+        return render_template('post.html', post=post)
     elif username:
         user = User.query.filter_by(name=username).first()
         posts = Post.query.order_by(Post.pub_date.desc()).filter_by(author_id=user.id).all()
         return render_template('posts_user.html', posts=posts, author=user.name)
     else:
         posts = Post.query.order_by(Post.pub_date.desc()).all()
-        return render_template('posts.html', posts=posts)
+        return render_template('posts_all.html', posts=posts)
 
 
 @app.route("/newpost", methods=['GET', 'POST'])
@@ -105,6 +105,9 @@ def newpost():
         db.session.commit()
         return redirect('/blog?id='+str(newpost.id))
     else:
-        return render_template("newpost.html", form=form, error=error)
+        return render_template("new_post.html", form=form, error=error)
 
 
+# @app.route('/home')
+# def home():
+#     return render_template('home.html')
