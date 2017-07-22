@@ -1,52 +1,91 @@
+
 {% extends "layout/base.html" %}
 
 {% block content %}
-<p><a href="{{ url_for('login')}}"></a></p>
-<h1>Please Register</h1>
-<br>
-<form role="form" method="post" action="{{ url_for('register')}}">
-  {{ form.csrf_token }}
-  <p>
-    {{ form.username(placeholder="username") }}
-    <span class="error">
-      {% if form.username.errors %}
-        {% for error in form.username.errors %}
-          {{ error }}
-        {% endfor %}
-      {% endif %}
-    </span>
-  </p>
-  <p>
-  {{ form.email(placeholder="email") }}
-    <span class="error">
-      {% if form.email.errors %}
-        {% for error in form.email.errors %}
-          {{ error }}
-        {% endfor %}
-      {% endif %}
-    </span>
-  </p>
-  <p>
-  {{ form.password(placeholder="password") }}
-    <span class="error">
-      {% if form.password.errors %}
-        {% for error in form.password.errors %}
-          {{ error }}
-        {% endfor %}
-      {% endif %}
-    </span>
-  </p>
-  <p>
-  {{ form.confirm(placeholder="confirm") }}
-    <span class="error">
-      {% if form.confirm.errors %}
-        {% for error in form.confirm.errors %}
-          {{ error }}
-        {% endfor %}
-      {% endif %}
-    </span>
-  </p>
-  <button class="btn btn-sm btn-success" type="submit">Register!</button>
-</form>
+<div class="container col-md-4 col-md-offset-4 text-center signin">
+     <div class="container-fluid col-md-12 signin-small">
+       Create Your Account
+     </div>
 
+    <form class="form-horizontal" role="form" method="post" action="{{ url_for('register')}}">
+        {{ form.csrf_token }}
+        <div class="form-group">
+            <div class="col-md-12">
+            {{ form.username(placeholder="username", class="form-control") }}
+             <span class="error">
+             {% if form.username.errors %}
+                {% for error in form.username.errors %}
+                {{ error }}
+                {% endfor %}
+             {% endif %}
+            </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+            {{ form.email(placeholder="email", class="form-control") }}
+            <span class="error">
+            {% if form.email.errors %}
+                {% for error in form.email.errors %}
+                {{ error }}
+                {% endfor %}
+            {% endif %}
+            </span>
+            </div>
+        </div>
+
+         <div class="form-group">
+            <div class="col-md-12">
+            {{ form.password(placeholder="password", class="form-control") }}
+            <span class="error">
+            {% if form.password.errors %}
+                {% for error in form.password.errors %}
+                {{ error }}
+                {% endfor %}
+            {% endif %}
+            </span>
+            </div>
+        </div>
+
+         <div class="form-group">
+            <div class="col-md-12">
+            {{ form.confirm(placeholder="confirm", class="form-control") }}
+            <span class="error">
+            {% if form.confirm.errors %}
+                {% for error in form.confirm.errors %}
+                {{ error }}
+                {% endfor %}
+            {% endif %}
+            </span>
+            </div>
+        </div>
+
+        <div class="form-group btn-signin">
+            <div class="col-md-12">
+            <button type="submit" id="signin" class="btn btn-success">SIGN UP</button>
+            <span>or <a href="{{ url_for('login')}}">sign in</a></span>
+            </div>
+        </div>
+
+        <div class="form-group other-service">
+            <div class="col-md-12">
+                <p><a href="#">or sign up with one of these services</a></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <button type="button" class="btn btn-success">Facebook</button>
+            </div>
+            <div class="col-md-4">
+                <button type="button" class="btn btn-success">Google</button>
+            </div>
+            <div class="col-md-4">
+                <button type="button" class="btn btn-success">Twitter</button>
+            </div>
+        </div>
+
+    </form>
+
+</div>
 {% endblock %}

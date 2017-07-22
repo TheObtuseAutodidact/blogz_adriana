@@ -11,6 +11,7 @@ login_manager.init_app(app)
 login_manager.login_view = "login"
 login_manager.login_message = u"Bonvolu ensaluti por uzi tiun paĝon."
 
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.filter(User.id == int(user_id)).first()
@@ -66,10 +67,7 @@ def logout():
     return redirect(url_for('display_blog'))
 
 
-
 @app.route('/blog')
-# @app.route('/blog/<int:id>')
-# @app.route('/blog<username>')
 def display_blog():
     id = request.args.get('id')
     username = request.args.get('username')

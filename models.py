@@ -32,7 +32,6 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), unique=True)
     email = db.Column(db.String(120), unique=True)
-    # email = db.Column(db.String(560), nullable=False)
     password = db.Column(db.String(560))
     posts = relationship("Post", backref="author")
 
