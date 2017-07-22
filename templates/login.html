@@ -4,7 +4,6 @@
 <div class="container col-md-4 col-md-offset-4 text-center signin">
      <div class="container-fluid col-md-12 signin-small">
        LOG INTO YOUR ACCOUNT
-        <!-- SIGN IN -->
      </div>
 
     <form class="form-horizontal" role="form" method="post" action="{{ url_for('login')}}">
@@ -38,22 +37,22 @@
         <div class="form-group btn-signin">
             <div class="col-md-12">
             <button type="submit" id="signin" class="btn btn-success">SIGN IN</button>
-        <span><a href="{{ url_for('regester')}}">sign up</a></span>
             </div>
         </div>
+
         <div class="form-group forget-pw">
             <div class="col-md-12">
-                <P><a href="#">Forgot your password?</a></p>
-
+            <span><a href="{{ url_for('register')}}">sign up</a></span>
+                <span><a href="#">| forgot your password?</a></span>
             </div>
         </div>
-
 
         <div class="form-group other-service">
             <div class="col-md-12">
-                <p><a href="#">or sign in with one of these services</a></p>
+                <p> or sign in with one of these services</p>
             </div>
         </div>
+
         <div class="row">
             <div class="col-md-4">
                 <button type="button" class="btn btn-success">Github</button>
