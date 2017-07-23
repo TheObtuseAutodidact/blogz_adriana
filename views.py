@@ -90,13 +90,11 @@ def newpost():
     error = None
     form = NewPostForm()
     if form.validate_on_submit():
-
         newpost = Post(
             title= form.title.data,
             body = form.body.data,
             pub_date = form.pub_date.data,
             author_id = form.author_id.data
-
         )
         db.session.add(newpost)
         db.session.commit()
