@@ -1,4 +1,4 @@
-from flask_sqlalchemy import get_debug_queries,  SQLAlchemy
+from flask_sqlalchemy import get_debug_queries,  SQLAlchemy, Pagination
 from flask import Flask
 # from flask_sqlalchemy import
 from flask_bcrypt import Bcrypt

@@ -9,7 +9,7 @@ from flask_login import login_user, login_required, logout_user, LoginManager, c
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = "login"
-login_manager.login_message = u"Bonvolu ensaluti por uzi tiun paĝon."
+login_manager.login_message = u""
 
 
 @login_manager.user_loader
@@ -32,7 +32,7 @@ def login():
             user.password, request.form['password']
         ):
             login_user(user)
-            flash('successfully loged in!')
+            # flash('successfully loged in!')
             return redirect('/blog?username={}'.format(user.name))
         else:
             error = 'Invalid username or password.'
@@ -66,7 +66,9 @@ def logout():
 
 
 @app.route('/blog')
-def display_blog():
+@app.route('/blog/page/<int:page>')
+def display_blog(page=1):
+    per_page = 3
     id = request.args.get('id')
     username = request.args.get('username')
     writers = User.query.all()
@@ -75,10 +77,10 @@ def display_blog():
         return render_template('post.html', post=post, writers=writers)
     elif username:
         user = User.query.filter_by(name=username).first()
-        posts = Post.query.order_by(Post.pub_date.desc()).filter_by(author_id=user.id).all()
+        posts = Post.query.order_by(Post.pub_date.desc()).filter_by(author_id=user.id).paginate(page, per_page, False)
         return render_template('posts_user.html', posts=posts, author=user.name, writers=writers)
     else:
-        posts = Post.query.order_by(Post.pub_date.desc()).all()
+        posts = Post.query.order_by(Post.pub_date.desc()).paginate(page, per_page, False)
         return render_template('posts_all.html', posts=posts, writers=writers)
 
 

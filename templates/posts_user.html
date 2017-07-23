@@ -5,7 +5,7 @@
 <section id="posts">
     <div class="container">
       <ul>
-        {% for post in posts: %}
+        {% for post in posts.items: %}
         <li class="list-unstyled">
             <a href="/blog?id={{post.id}}"><h2>{{post.title}}</h2></a>
             <p><em>{{ post.pub_date}} &nbsp; &nbsp;by <a href="/blog?username={{author}}">{{ author }}</a></em></p>

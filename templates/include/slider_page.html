@@ -7,7 +7,7 @@
             {% if post %}
             <h3>{{ post.title }}</h3>
                 <p>Published At {{ post.pub_date }}</p>
-                <p> By <a href="/blog?username={{post.author['name']}}">{{ post.author['name']|capitalize }}</a></p>
+                <p > By <a href="/blog?username={{post.author['name']}}">{{ post.author['name']|capitalize }}</a></p>
             {% else %}
                 <p>Q: What do computers and air conditioners have in common?</p>
                 <p>A: They both become useless when you open Windows.</p>
