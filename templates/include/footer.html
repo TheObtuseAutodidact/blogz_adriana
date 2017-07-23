@@ -1,18 +1,25 @@
 <!-- footer Start -->
 <footer>
   <div class="container">
+    <div class="row footer-manu">
+      <div class="col-md-12">
+        <span><i class="fa fa-github fa-2x" aria-hidden="true"></i></span>
+        <span><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></span>
+        <span><i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i></span>
+        <span><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></span>
+      </div>
+      </div>
     <div class="row">
       <div class="col-md-12">
         <div class="footer-manu">
           <ul>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Contact us</a></li>
-            <li><a href="#">How it works</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Terms</a></li>
+            <li><a href="#">about</a></li>
+            <li><a href="#">contact</a></li>
+            <li><a href="{{ url_for('display_blog')}}">blog</a></li>
+             <li><a href="{{ url_for('display_blog')}}">home</a></li>
           </ul>
         </div>
-        <p>Copyright &copy; Design &amp; Developed by <a href="http://www.themefisher.com">Themefisher</a>. All rights reserved.</p>
+        <p>Copyright &copy;2017. All rights reserved.</p>
       </div>
     </div>
   </div>

@@ -1,26 +1,25 @@
-{% extends 'layout/default.html' %}
+{% extends 'layout/posts.html'%}
 
 {% block content %}
+{% include 'include/navsub.html'%}
 
- <nav>
-            <span><a href="/blog" class="text-left">BLOG</a></span>
-            <span class="addpost"><a href="{{url_for('newpost')}}">ADD A POST</a></span>
-            <span><a href="{{url_for('login')}}">login</a></span><span>&nbsp;&nbsp;<a href="{{url_for('register')}}">register</a></span>
-            &nbsp; <span><a href="{{url_for('logout')}}">logout</a></span>
-</nav>
-        {% with messages = get_flashed_messages(with_categories=True) %}
-        <ul>
-            {% for category, message in messages %}
-            <li class="{{ category }}">
-                <em>{{ message }}</em>
-            </li>
-            {% endfor %}
-        </ul>
+<section id="posts">
+    <div class="container">
+      <ul>
+        {% for post in posts: %}
+        <li class="list-unstyled">
+            <a href="/blog?id={{post.id}}"><h2>{{post.title}}</h2></a>
+            <p><em>{{ post.pub_date}} &nbsp; &nbsp;by <a href="/blog?username={{ post.author['name']}}">{{ post.author['name'] }}</a></em></p>
 
-        {% endwith %}
-
-
-
-
-
+            <p>{{ post.body[:600] }}&nbsp;&nbsp;
+                <a href="/blog?id={{post.id}}"><span>
+                <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                <em>[read more]</em>
+                </span></a></p>
+            <hr>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+</section>
 {% endblock %}

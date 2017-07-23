@@ -1,7 +1,8 @@
 from flask_wtf import FlaskForm
 from wtforms import TextField, PasswordField, StringField, TextAreaField,DateField, IntegerField
-from wtforms.validators import DataRequired, Length, Email, EqualTo
-from wtforms.widgets import HiddenInput
+from wtforms.validators import DataRequired, Length, Email, EqualTo, Optional
+from wtforms.widgets import HiddenInput,  TextArea
+from datetime import datetime
 
 class LoginForm(FlaskForm):
     username = TextField('Username', validators=[DataRequired()])
@@ -31,6 +32,6 @@ class RegisterForm(FlaskForm):
 
 class NewPostForm(FlaskForm):
     title = StringField('title', validators=[DataRequired()])
-    body = TextAreaField('body', validators=[DataRequired()])
-    pub_date = DateField('pub_date', format='%Y-%m-%d')
+    body = StringField('body', widget=TextArea(), validators=[DataRequired()])
+    pub_date = DateField('pub_date', validators=[Optional()], default=datetime.utcnow())
     author_id = IntegerField('author_id', widget=HiddenInput())

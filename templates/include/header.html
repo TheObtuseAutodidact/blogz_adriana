@@ -14,18 +14,21 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">
-              <img src="#" alt="Logo">
-            </a>
+            <!-- <a class="navbar-brand" href="{{ url_for('display_blog')}}">
+            ADRIANACMY
+            </a> -->
           </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-left">
+                <li><a href="{{ url_for('display_blog')}}">HOME</a></li>
+                <li><a href="{{ url_for('display_blog')}}">BLOG</a></li>
+                <li><a href="#">CONTACT</a></li>
+                <li><a href="#">ABOUT</a></li>
+              </ul>
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">About</a></li>
-                <!-- <li><a href="#">Sce</a></li> -->
-                <li><a href="#">Contact</a></li>
+                <li><a href="{{url_for('register')}}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="{{url_for('login')}}"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->

@@ -34,10 +34,8 @@ def login():
             login_user(user)
             flash('successfully loged in!')
             return redirect('/blog?username={}'.format(user.name))
-
         else:
             error = 'Invalid username or password.'
-
     return render_template('login.html', form=form, error=error)
 
 
@@ -71,16 +69,17 @@ def logout():
 def display_blog():
     id = request.args.get('id')
     username = request.args.get('username')
+    writers = User.query.all()
     if id:
         post = Post.query.filter_by(id=id).first()
-        return render_template('post.html', post=post)
+        return render_template('post.html', post=post, writers=writers)
     elif username:
         user = User.query.filter_by(name=username).first()
         posts = Post.query.order_by(Post.pub_date.desc()).filter_by(author_id=user.id).all()
-        return render_template('posts_user.html', posts=posts, author=user.name)
+        return render_template('posts_user.html', posts=posts, author=user.name, writers=writers)
     else:
         posts = Post.query.order_by(Post.pub_date.desc()).all()
-        return render_template('posts_all.html', posts=posts)
+        return render_template('posts_all.html', posts=posts, writers=writers)
 
 
 @app.route("/newpost", methods=['GET', 'POST'])
@@ -88,10 +87,8 @@ def display_blog():
 def newpost():
     error = None
     form = NewPostForm()
-    # id = form.current_user.id
-    # if current_user.is_authenticated:
-
     if form.validate_on_submit():
+
         newpost = Post(
             title= form.title.data,
             body = form.body.data,
@@ -105,7 +102,3 @@ def newpost():
     else:
         return render_template("new_post.html", form=form, error=error)
 
-
-# @app.route('/home')
-# def home():
-#     return render_template('home.html')

@@ -16,10 +16,8 @@ class Post(db.Model):
     def __init__(self, title, body, pub_date, author_id):
         self.title = title
         self.body = body
-        if not pub_date:
-            pub_date = datetime.utcnow
-        self.pub_date = pub_date
         self.author_id = author_id
+        self.pub_date = pub_date
 
     def __repr__(self):
         return 'title: {} written by {}'.format(self.title)

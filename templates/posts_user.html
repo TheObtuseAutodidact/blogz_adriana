@@ -1,25 +1,24 @@
-{% extends "layout/page.html" %}
+{% extends 'layout/posts.html'%}
 
 {% block content %}
+{% include 'include/navsub.html'%}
+<section id="posts">
+    <div class="container">
+      <ul>
+        {% for post in posts: %}
+        <li class="list-unstyled">
+            <a href="/blog?id={{post.id}}"><h2>{{post.title}}</h2></a>
+            <p><em>{{ post.pub_date}} &nbsp; &nbsp;by <a href="/blog?username={{author}}">{{ author }}</a></em></p>
 
-<hr>
-<p><em>written by:
-    {% if current_user.is_authenticated %}
-        {{ current_user.name }}
-    {% endif %}
-</em></p>
-
-<ul>
-{% for post in posts: %}
-    <li class="list-unstyled">
-        <a href="/blog?id={{post.id}}"><h2>{{post.title}}</h2></a>
-        <em>{{ post.pub_date}}</em>
-
-        <p>{{ post.body[:130] }}</p>
-        <hr>
-
-    </li>
-{% endfor %}
-</ul>
-
+            <p>{{ post.body[:600] }}&nbsp;&nbsp;
+                <a href="/blog?id={{post.id}}"><span>
+                <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                <em>[read more]</em>
+                </span></a></p>
+            <hr>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+</section>
 {% endblock %}
