@@ -962,27 +962,55 @@ footer span{
 }
 .signin {
     margin-top: 3em;
-    padding: 3em 6em 6em 6em;
     border: 0.1em solid #D3D3D3;
-     background:#fff;
-     box-shadow: 10px 5px 5px #d7d7dd;
+    background:#fff;
+    box-shadow: 10px 5px 5px #d7d7dd;
 }
-.signin-small {
-font-size: 1.5em;
-margin-bottom: 2.0em;
-margin-top: 1em;
-letter-spacing: 0.1em;
-color: #939393;
+.container {
+    padding-left: 0;
+    padding-right: 0;
 }
+.signin-header {
+    margin: 0 0 3.5em 0;
+}
+.signin-cell, .signup-cell {
+    border: 0.1em solid #D3D3D3;
+    padding: 1.1em;
+    background-color: #eaf4e1
+}
+
+.cell-active {
+    border: none;
+    background: transparent;
+}
+
+.signin-small, .signin form {
+    padding: 0 6em;
+    margin-bottom: 2em;
+    margin-top: 0.2em;
+    letter-spacing: 0.1em;
+    color: #939393;
+
+}
+
+.signin form {
+    padding-bottom: 3em;
+}
+
+.signin-small{
+    font-size: 1.5em;
+}
+
 .btn {
     border-radius: 0;
 }
 
-.btn-signin .other-service .forget-pw {
-    margin-bottom: 5em;
+.btn-signin, .other-service, .forget-pw {
+    margin-bottom: 2.2em;
 }
 .btn-signin {
     margin-top: 2em;
+    margin-bottom: 3em;
 }
 #signin {
     padding: 0.7em 3em 0.7em 3em;
@@ -990,6 +1018,15 @@ color: #939393;
     word-spacing: 0.5em;
 }
 
+
+
 .form-control{
-    border-radius: 0
+  border-radius: 0
+}
+
+#pagination {
+  margin-left: 67.5%;
+}
+.pagination a {
+  border-radius: 0!important;
 }
