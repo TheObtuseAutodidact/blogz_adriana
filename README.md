@@ -1,7 +1,51 @@
-# build-a-blog
-a web app that displays blog posts on a main page and allows users to add new blog posts on a form page.
+## flask-blog
 
-After submitting a new blog entry on the form page, the user is redirected to a page that displays only that blog (rather than returning to the form page or to the main page).
+simple blog engine written on Flask
+
+## Demo:
+
+[You can try it here](http://comming soon)
+
+- login:
+
+- pass:demo
+
+## Under the hood:
+
+- Python
+- Flask
+- Mysql
+- Bootstrap 3
+- jQuery
+
+## What it can:
+
+- create | retrieve | update(in dev) | delete (in dev) posts;
+- create | update(in dev) | delete(in dev) users;
+- search(in dev);
 
 
+## Installation:
+```
 
+- git@github.com:Adrianacmy/blogz.git
+
+- cd blogz
+
+- conda create -n yourenv
+
+- source activate yourenv
+
+- pip install -r requirements.txt
+
+- export APP_SETTINGS = config.ProductionConfig or other config in config.py
+
+- export DATABASE_URL = your-database-url
+```
+
+## Run:
+```
+- service mysql start
+
+- python app.py
+```
