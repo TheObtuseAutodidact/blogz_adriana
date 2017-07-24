@@ -41,13 +41,15 @@ simple blog engine written on Flask
 
 - pip install -r requirements.txt
 
-- export APP_SETTINGS = config.ProductionConfig or other config in config.py
+- export APP_SETTINGS=config.ProductionConfig or other config in config.py
 
-- export DATABASE_URL = your-database-url
+- export DATABASE_URL=your-database-url
 ```
 
 ## Run:
+```
+- service mysql start
 
-- `service mysql start`
+- python app.py
 
-- `python app.py`
+```
