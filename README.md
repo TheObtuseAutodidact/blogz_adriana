@@ -1,6 +1,6 @@
 ## Blogz
 
-simple blog engine written on Flask
+simple blog powered by Flask
 
 ## Demo:
 
