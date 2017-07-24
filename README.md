@@ -4,16 +4,19 @@ simple blog engine written on Flask
 
 ## Demo:
 
-[You can try it here](http://comming soon)
+[You can try it here](http://commingsoon)
 
 - login:
 
-- pass:demo
+- pass:
 
 ## Under the hood:
 
 - Python
 - Flask
+- jinja2 
+- sqlalchemy
+- wtform
 - Mysql
 - Bootstrap 3
 - jQuery
@@ -44,8 +47,7 @@ simple blog engine written on Flask
 ```
 
 ## Run:
-```
-- service mysql start
 
-- python app.py
-```
+- `service mysql start`
+
+- `python app.py`
