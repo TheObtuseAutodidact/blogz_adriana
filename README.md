@@ -1,4 +1,4 @@
-## flask-blog
+## Blogz
 
 simple blog engine written on Flask
 
