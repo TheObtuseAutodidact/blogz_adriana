@@ -4,7 +4,7 @@ simple blog engine written on Flask
 
 ## Demo:
 
-[You can try it here](http://commingsoon)
+- [live demo in dev](http://commingsoon)
 
 - login:
 
@@ -18,7 +18,7 @@ simple blog engine written on Flask
 - sqlalchemy
 - wtform
 - Mysql
-- Bootstrap 3
+- Bootstrap3
 - jQuery
 
 ## What it can:
