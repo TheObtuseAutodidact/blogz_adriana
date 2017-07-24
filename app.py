@@ -1,11 +1,11 @@
 from flask_sqlalchemy import get_debug_queries,  SQLAlchemy, Pagination
 from flask import Flask
 from flask_bcrypt import Bcrypt
+import os
 
 
 app = Flask(__name__)
-app.config.from_pyfile('config.py')
-
+app.config.from_object(os.environ['APP_SETTINGS'])
 
 
 bcrypt = Bcrypt(app)
