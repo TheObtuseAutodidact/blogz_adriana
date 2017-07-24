@@ -4,7 +4,7 @@ from flask_bcrypt import Bcrypt
 
 
 app = Flask(__name__)
-app.config.from_object(os.environ['APP_SETTINGS'])
+app.config.from_pyfile('config.py')
 
 
 
