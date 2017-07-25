@@ -14,7 +14,7 @@
       {% for page in posts.iter_pages() %}
         {% if page %}
             {% if page != posts.page %}
-                <li><a href="{{ url_for('display_blog', page=page+1) }}">{{ page }}</a></li>
+                <li><a href="{{ url_for('display_blog', page=page) }}">{{ page }}</a></li>
             {% else %}
                 <li><span aria-hidden="true">{{ page }}</span></li>
             {% endif %}

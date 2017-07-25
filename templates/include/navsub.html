@@ -14,9 +14,17 @@
       </li>
       <li><a href="#">Computer Science</a></li>
       <li><a href="#">Data Science</a></li>
-      <li><a href="#">Programming</a></li>
       <li><a href="{{url_for('newpost')}}">New Post</a></li>
-      <li><a href="{{ url_for('logout')}}">Log Out</a></li>
+      <li><a href="{{ url_for('logout')}}">Log Out</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+
+       {% with messages = get_flashed_messages(with_categories=True) %}
+          {% for category, message in messages %}
+            <li class="{{ category }}"><a href="">
+              <em>{{ message }}</em></a>
+            </li>
+          {% endfor %}
+        {% endwith %}
+
     </ul>
 
     <form class="navbar-form navbar-right">

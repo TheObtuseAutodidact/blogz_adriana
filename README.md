@@ -31,25 +31,30 @@ simple blog powered by Flask
 ## Installation:
 ```
 
-- git@github.com:Adrianacmy/blogz.git
+git@github.com:Adrianacmy/blogz.git
 
-- cd blogz
+cd blogz
 
-- conda create -n yourenv
+conda create -n yourenv
 
-- source activate yourenv
+source activate yourenv
 
-- pip install -r requirements.txt
+pip install -r requirements.txt
 
-- export APP_SETTINGS=config.ProductionConfig or other config in config.py
+export APP_SETTINGS=config.ProductionConfig or other config in config.py
 
-- export DATABASE_URL=your-database-url
+export DATABASE_URL=your-database-url
+
+python manage.py db migrate
+
+python manage.py db upgrade
+
 ```
 
 ## Run:
 ```
-- service mysql start
+service mysql start
 
-- python app.py
+python app.py
 
 ```

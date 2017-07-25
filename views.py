@@ -32,7 +32,7 @@ def login():
             user.password, request.form['password']
         ):
             login_user(user)
-            # flash('successfully loged in!')
+            flash('Howdy, {}!'.format(user.name.capitalize(), 'success'))
             return redirect('/blog?username={}'.format(user.name))
         else:
             error = 'Invalid username or password.'
