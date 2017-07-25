@@ -41,9 +41,9 @@ source activate yourenv
 
 pip install -r requirements.txt
 
-export APP_SETTINGS=config.ProductionConfig or other config in config.py
+export APP_SETTINGS='config.ProductionConfig or other config in config.py'
 
-export DATABASE_URL=your-database-url
+export DATABASE_URL='your-database-url'
 
 python manage.py db migrate
 
