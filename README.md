@@ -52,9 +52,7 @@ python manage.py db upgrade
 ```
 
 ## Run:
-```
-service mysql start
+`service mysql start`
 
-python app.py
+`python app.py` or `python manage.py runserver`
 
-```
